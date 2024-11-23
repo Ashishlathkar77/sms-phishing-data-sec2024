@@ -1,5 +1,7 @@
 # 📧 SMS Phishing Detection - End-to-End Report
 
+Project Live Link: https://sms-phishing-data-sec2024.streamlit.app/
+
 ## Overview
 
 The goal of this project is to build a **Phishing Message Detection System** that classifies messages as either **Phishing** or **Legitimate** based on their content. The system uses a machine learning model to predict the nature of a message after cleaning and preprocessing the text.
@@ -17,19 +19,19 @@ This report covers the methodology, implementation, results, and deployment of t
 
 ## 1. Data Collection
 
-The dataset used for this project is the **SMS Spam Collection Dataset**. It contains messages labeled as **spam** (phishing) and **ham** (legitimate). The dataset is publicly available and can be downloaded from sources like [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/sms+spam+collection).
+The dataset used for this project is the **SMS Spam Collection Dataset**. It contains messages labeled as **spam** (phishing) and **ham** (legitimate). The publicly available dataset can be downloaded from sources like [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/sms+spam+collection).
 
 The dataset consists of:
-- **v1**: Label (`ham` or `spam`)
+- **v1**: Label (`Legitimate` or `Phishing`)
 - **v2**: Message content
 
 ### Example Entries:
-| v1    | v2                                                                                      |
-|-------|------------------------------------------------------------------------------------------|
-| ham   | "Hey, how about a game of golf tomorrow?"                                                |
-| spam  | "Congratulations! You've won a $1000 gift card. Click here to claim your prize!"        |
+| v1           | v2                                                                                      |
+|--------------|-----------------------------------------------------------------------------------------|
+| Legitimate   | "Hey, how about a game of golf tomorrow?"                                               |
+| Phishing     | "Congratulations! You've won a $1000 gift card. Click here to claim your prize!"        |
 
-The dataset contains 5,572 messages, with an imbalanced distribution of 747 spam messages and 4,825 ham messages.
+The dataset contains 5,572 messages, with an imbalanced distribution of 747 Phishing messages and 4,825 Legitimate messages.
 
 ---
 
@@ -95,11 +97,11 @@ model.fit(X_train, y_train)
 After training the model, we evaluated its performance on the test set. The evaluation metrics include accuracy, precision, recall, and the confusion matrix.
 
 ### 4.1. Performance Metrics
-Accuracy: 90.88%
-Precision (Spam): 1.00
-Recall (Spam): 0.82
-F1-score: 0.90
-Classification Report:
+- Accuracy: 90.88%
+- Precision (Spam): 1.00
+- Recall (Spam): 0.82
+- F1-score: 0.90
+- Classification Report:
 
                   precision    recall  f1-score   support
                0       0.85      1.00      0.92       985
@@ -108,7 +110,7 @@ Classification Report:
     macro avg          0.92      0.91      0.91      1930
     weighted avg       0.92      0.91      0.91      1930
 
-Confusion Matrix:
+- Confusion Matrix:
 
 [[982   3]
 
@@ -155,15 +157,15 @@ The SMS Phishing Detection model performs well with an accuracy of over 90%. The
 
 Future improvements could include:
 
-Exploring deep learning models such as LSTM or BERT for better context understanding.
-Expanding the dataset for better generalization across different message types.
-Implementing real-time phishing detection in messaging applications.
+- Exploring deep learning models such as LSTM or BERT for better context understanding.
+- Expanding the dataset for better generalization across different message types.
+- Implementing real-time phishing detection in messaging applications.
 
 ## 7. Files Included
-data_processing.py: Contains code for data loading, cleaning, and preprocessing.
-main.py: Implements the Streamlit application and user interface.
-spam_model.pkl: The trained model used for predictions.
-vectorizer.pkl: The vectorizer used to transform text into numerical features.
-spam.csv: The dataset containing labeled SMS messages.
+- data_processing.py: Contains code for data loading, cleaning, and preprocessing.
+- main.py: Implements the Streamlit application and user interface.
+- spam_model.pkl: The trained model used for predictions.
+- vectorizer.pkl: The vectorizer used to transform text into numerical features.
+- spam.csv: The dataset containing labeled SMS messages.
 
 This Markdown report covers all aspects of the project, including the data collection, preprocessing, model training, evaluation, deployment, and conclusions.
