@@ -1,5 +1,6 @@
+streamlit
 pandas
 numpy
-streamlit
-pickle
-sklearn
+scikit-learn
+imbalanced-learn
+regex
